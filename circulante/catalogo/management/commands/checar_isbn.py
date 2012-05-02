@@ -25,6 +25,10 @@ class Command(BaseCommand):
             linha = u'{0} {1} {2:}\n'.format(reg.id, reg.id_padrao, titulo_abrev)
             linha = linha.encode('utf-8')
             self.stdout.write(linha) 
+            if 'alterar_tipo' in args:
+                reg.tipo = u'outro'
+                reg.save()
         self.stdout.write('%s registros com ISBN inválidos\n' % qt_isbn_invalidos)
-        if 'alterar_tipo' in args:
-            self.stdout.write('ALTERAR TIPO\n')
+        if 'alterar_tipo' in args and qt_isbn_invalidos > 0:
+            self.stdout.write('TIPOS ALTERADOS PARA "outro"\n')
+            

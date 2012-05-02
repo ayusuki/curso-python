@@ -6,6 +6,7 @@ TIPOS_PUBLICACAO = (
     (u'livro', u'livro'),
     (u'apostila', u'apostila'),
     (u'gibi', u'gibi'),
+    (u'midia', u'CD/DVD/BLUE-RAY'),
     (u'outro', u'outro'),
 )
 
