@@ -6,7 +6,7 @@ TIPOS_PUBLICACAO = (
     (u'livro', u'livro'),
     (u'apostila', u'apostila'),
     (u'gibi', u'gibi'),
-    (u'midia', u'CD/DVD/BLUE-RAY'),
+    (u'midia', u'CD/DVD/BLU-RAY'),
     (u'outro', u'outro'),
 )
 
@@ -16,17 +16,18 @@ class Publicacao(models.Model):
     id_padrao = models.CharField(u'Id.padrão', max_length=32, blank=True)
     titulo = models.CharField(u'Título', max_length=256)
     num_paginas = models.PositiveIntegerField(u'Páginas', default=0)
+    
     class Meta:
         verbose_name = u'Publicação'
         verbose_name_plural = u'Publicações'
     
     def __unicode__(self):
-        return self.titulo    
+        return unicode(self.id)+u': '+self.titulo    
 
 class Credito(models.Model):
     nome = models.CharField(max_length=256)
     papel = models.CharField(max_length=32, blank=True)
-    publicacao = models.ForeignKey(Publicacao)
+    publicacao = models.ForeignKey(Publicacao, verbose_name='publicação')
 
     def __unicode__(self):
         return self.nome
