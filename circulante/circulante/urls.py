@@ -6,9 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^hora$', 'catalogo.views.hora_atual', name='hora'),
-    url(r'^hora/(-?\d\d?)$', 'catalogo.views.hora_atual_delta', name='hora-caminho'),
-    # url(r'^circulante/', include('circulante.foo.urls')),
+    url(r'^cat/', include('catalogo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
