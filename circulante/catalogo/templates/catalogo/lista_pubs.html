@@ -1,17 +1,23 @@
+{% extends 'fluid.html' %}
+
 <html>
 <head>
-<title> Lista de Publicações </title>
+<title> {% block page-title%} Lista de Publicações {% endblock%} </title>
+<!--
 <style>
             *{font-family:'Trebuchet MS', sans-serif; border-collapse:collapse;}
             tr:nth-child(odd){background-color:#ddd;}
             th{background-color:#334455; color:#fff;}
             td, th{padding:4px; border:solid 1px #bbb;}
 </style>
+-->
+
 </head>
 <body>
+    {% block content %}
     <h1>Publicações</h1>
     
-    <table border ='1'>
+    <table>
         <tr><th>ID</th><th>Título</th></tr>
         {% for pub in pubs %}
             <tr>
@@ -20,6 +26,7 @@
             </tr>    
         {% endfor %}
     </table>
+    {% endblock content %}
     
 </body>
 </html>
